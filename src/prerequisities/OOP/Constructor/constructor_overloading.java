@@ -28,6 +28,7 @@ public class constructor_overloading {
 
         System.out.println("product name : " + p1.name + "            " + "product price : " + p1.price);
         System.out.println("product name : " + p2.name + "     " + "product price : " + p2.price);
+
     }
 
 }
