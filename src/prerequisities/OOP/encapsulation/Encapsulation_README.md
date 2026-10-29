@@ -686,33 +686,6 @@ An encapsulated object controls access to its state; an immutable object cannot 
 
 ---
 
-## 14. Practice Exercises
-
-Try each exercise before reading or writing a solution.
-
-### Level 1 — Fundamentals
-
-- [ ] Create a `Student` class with private `name` and `age` fields.
-- [ ] Add a constructor and getters.
-- [ ] Add a setter that rejects negative ages.
-- [ ] Create an object and print its values.
-- [ ] Try to access a private field directly and observe the compiler error.
-
-### Level 2 — Validation
-
-- [ ] Create a `Product` class with private ID, name, and price fields.
-- [ ] Make the product ID read-only after construction.
-- [ ] Reject blank names and negative prices.
-- [ ] Add a method that applies a valid discount.
-- [ ] Write tests for valid and invalid inputs.
-
-### Level 3 — Domain modeling
-
-- [ ] Implement the `BankAccount` example.
-- [ ] Add a transaction rule that prevents overdrafts.
-- [ ] Ensure callers cannot replace the balance directly.
-- [ ] Create an immutable `Employee` class.
-- [ ] Encapsulate a list of roles without exposing a mutable internal list.
 
 ### Level 4 — Design thinking
 
@@ -748,20 +721,6 @@ Encapsulation/
 
 ---
 
-## 16. Quick Revision
-
-| Concept | One-line definition |
-|---|---|
-| Encapsulation | Bundles state and behavior and controls access to internal state |
-| Data hiding | Restricts direct access to implementation details |
-| `private` | Limits direct access to the declaring class |
-| Getter | Reads a value through a method |
-| Setter | Changes a value through a method, optionally with validation |
-| Invariant | A condition that must remain true for a valid object |
-| Immutability | Observable state cannot change after construction |
-| Abstraction | Exposes essential functionality while hiding implementation complexity |
-| SRP | A class should have one coherent responsibility |
-| Builder | A pattern for constructing objects step by step |
 
 ### Final interview answer
 
@@ -771,17 +730,3 @@ Encapsulation is an object-oriented programming principle that bundles data and 
 
 ---
 
-## Recommended learning order
-
-1. Classes and objects
-2. Constructors
-3. Encapsulation
-4. Inheritance
-5. Polymorphism
-6. Abstraction and interfaces
-7. Composition vs. inheritance
-8. SOLID principles
-9. Design patterns
-10. Dependency injection
-
-**Learning target:** Before moving on to design patterns, make sure you can explain why fields should be private, design meaningful methods, enforce invariants, and distinguish encapsulation from abstraction and immutability.
