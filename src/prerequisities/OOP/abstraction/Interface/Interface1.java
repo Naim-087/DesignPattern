@@ -1,7 +1,5 @@
 package prerequisities.OOP.abstraction.Interface;
 
-import javax.sound.sampled.SourceDataLine;
-
 /*An interface is a collection of abstract methods
 
 ----> Fully abstraction

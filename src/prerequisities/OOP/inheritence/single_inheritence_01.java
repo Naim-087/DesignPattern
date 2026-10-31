@@ -1,7 +1,5 @@
 package prerequisities.OOP.inheritence;
 
-import java.nio.channels.Pipe.SourceChannel;
-
 class Employee {
     int employeeId;
     String name;
