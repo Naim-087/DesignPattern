@@ -1,5 +1,18 @@
 package creational.singleton;
 
+/*
+1. What does Lazy Initialization mean?
+Definition:
+
+Lazy Initialization is a technique in which an object is created only when it is actually needed, 
+rather than creating it beforehand.
+
+Let's break it down:
+- Lazy: Don't do something until it is necessary.
+- Initialization: Creating and assigning an initial value to a variable or object.
+So, Lazy Initialization means creating an object only when someone requests it for the first time.
+
+*/
 class Database1 {
 
     // 1. Static instance variable
