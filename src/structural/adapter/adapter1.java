@@ -1,73 +1,50 @@
 package structural.adapter;
-/*
-Let's build a real-world USB Adapter example in Java using the Adapter Design Pattern.
 
-We'll simulate this situation:
-- A laptop supports a USB-C port.
-- An old USB device uses a USB-A connector.
-- The laptop cannot directly communicate with the old device because their interfaces are different.
-- We create a USBAdapter that converts the laptop's USB-C request into a USB-A device operation.
-*/
-
-//1. interface expected by the laptop / target interface
-
-interface USB_C {
-    void connectWithUSB_C();
+interface PaymentGateway {
+    void pay(double amount);
 }
 
-// 2. Adaptee ; existing device that supports USB-A
-
-class USB_A_Device {
-    void connectWithUSB_A() {
-        System.out.println("USB-A device connected successfully...");
+class BkashAPI {
+    public void makePayment(double amount) {
+        System.out.println("Bkash paid: " + amount);
     }
 }
 
-// 3.adapter - convert USB-C request into USB-A operations
-
-class USBAdapter implements USB_C {
-
-    private USB_A_Device usbADevice;
-
-    public USBAdapter(USB_A_Device usbADevice) {
-        this.usbADevice = usbADevice;
-    }
-
-    @Override
-    public void connectWithUSB_C() {
-
-        System.out.println("Adapter converting USB-C to USB-A...");
-
-        // Forward the request to the existing device
-        usbADevice.connectWithUSB_A();
+class RocketAPI {
+    public void sendMoney(double amount) {
+        System.out.println("Rocket paid: " + amount);
     }
 }
 
-class Laptop {
+class BkashAdapter implements PaymentGateway {
+    private BkashAPI bkash;
 
-    public void connectDevice(USB_C device) {
+    public BkashAdapter(BkashAPI bkash) {
+        this.bkash = bkash;
+    }
 
-        System.out.println("Laptop requesting USB-C connection...");
+    public void pay(double amount) {
+        bkash.makePayment(amount);
+    }
+}
 
-        device.connectWithUSB_C();
+class RocketAdapter implements PaymentGateway {
+    private RocketAPI rocket;
+
+    public RocketAdapter(RocketAPI rocket) {
+        this.rocket = rocket;
+    }
+
+    public void pay(double amount) {
+        rocket.sendMoney(amount);
     }
 }
 
 public class adapter1 {
-
     public static void main(String[] args) {
-
-        // Create an existing USB-A device
-        USB_A_Device oldDevice = new USB_A_Device();
-
-        // Create the adapter
-        USBAdapter adapter = new USBAdapter(oldDevice);
-
-        // Create laptop
-        Laptop laptop = new Laptop();
-
-        // Connect USB-A device to laptop through adapter
-        laptop.connectDevice(adapter);
+        PaymentGateway p1 = new BkashAdapter(new BkashAPI());
+        PaymentGateway p2 = new RocketAdapter(new RocketAPI());
+        p1.pay(500);
+        p2.pay(300);
     }
-
 }
